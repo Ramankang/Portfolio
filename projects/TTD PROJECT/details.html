@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>details page</title>
+    <link href="common.css" rel="stylesheet">
+    <link href="details.css" rel="stylesheet">
+    <style>
+        
+    </style>
+
+</head>
+<body>
+    <script>
+        document.getElementsByTagName("body")[0].onload = function(){
+            var data=JSON.parse(localStorage["data"]);
+            console.log(data);
+            document.getElementById("mainImg").setAttribute("src",data.lthumbnail_image);
+            document.getElementById("heading").innerHTML=data["subjectprod_link/_text"];
+            document.getElementById("price").innerHTML=data["price_value"]+data["piece_label"];
+            document.getElementById("cost").innerHTML=data["costprice_value"];
+            document.getElementById("seller").innerHTML+=data["seller_link/_text"]+" ("+data["word_value"]+")";
+            document.getElementById("sellerLink").setAttribute("href",data["seller_link"]);
+            document.getElementById("feedback").innerHTML=data["feedback_number"]+" Positive Feedbacks";
+            document.getElementById("atc").innerHTML=data["addtocart_label"];
+            document.getElementById("minOrder").innerHTML=data["ordernum_value"];
+            document.getElementById("shipping").innerHTML+=data["free_value"]+" to Canada "+data["shipname_value"];
+            document.getElementById("report").innerHTML=data["reportitem_link/_text"];
+            document.getElementById("reportLink").setAttribute("href",data["reportitem_link"]);
+
+        }
+        function addToCart(){
+            var data=JSON.parse(localStorage["data"]);
+            var cart=[];
+            if(JSON.parse(localStorage["cart"])!=null){
+            cart=JSON.parse(localStorage["cart"]);
+            }
+            cart.push(data);
+            localStorage["cart"]=JSON.stringify(cart);
+
+        }
+        function addToCart2(){
+            var data=JSON.parse(localStorage["data"]);
+            var cart=[];
+            if(JSON.parse(localStorage["cart"])!=null){
+            cart=JSON.parse(localStorage["cart"]);
+            }
+            cart.push(data);
+            localStorage["cart"]=JSON.stringify(cart);
+            window.location.href="cart.html";
+        }
+        
+    </script>
+
+<div id="header"><h1><span id="hHeader" onclick="window.location.href='index.html'">Shopping Website</span><span id="hCart" onclick="window.location.href='cart.html'">Cart</span></h1></div>
+<div class="row" id="details">
+        <div class="col-5">
+            <img id="mainImg" alt="NO IMAGE GIVEN">
+        </div>
+        <div class="col-7">
+            <div id="heading"></div>
+            <div class="wrapper"><div><span id="price"></span></div><div><span id="cost"></span></div></div>
+            <div class="wrapper"><a id="sellerLink"><div id="seller"><span class="label">Seller: </span></div></a><div id="feedback"></div></div>
+            <div class="wrapper"><button onclick="addToCart()" id="atc"type="button" class="btn btn-warning btn-lg"></button><button onclick="addToCart2()" onclick="window.location.href='cart.html'" id="buyNow" type="button" class="btn btn-warning btn-lg">Buy Now</button></div>
+            <div class="wrapper"><div id="minOrder"></div></div>
+            <div class="wrapper"><div id="shipping"><span class="label">Shipping: </span></div></div>
+            <div class="wrapper"><a id="reportLink"><div id="report"></div></a></div>
+        </div>
+    </div>
+</body>
+</html>

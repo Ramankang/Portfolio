@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="common.css" rel="stylesheet">
+    <title>cart</title>
+    <style>
+        .container{
+            border: 2px solid brown;
+        }
+        .prodRow{
+            background-color: #f2f2f2;
+            border-bottom: 1px solid #CDCDCD;
+            margin:10px;
+            padding: 5px;
+
+        }
+        #smallImg{
+            height: 140px;
+            width: 140px;
+            border-radius: 75px;
+        }
+        .btn-lg{
+            width: 30%;
+            margin:20px 0 20px 60%;
+        }
+        .total{
+            margin:20px;
+            font-size: x-large;
+            font-weight: 900;
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.getElementsByTagName("body")[0].onload = function(){
+            var cart=JSON.parse(localStorage["cart"]);
+            var totalPrice=0;
+            var ne;
+            cart.map((data,i)=>{
+            var prod= document.createElement("div");
+            prod.setAttribute("class","row prodRow");
+            var c1=document.createElement("div");
+            var c2=document.createElement("div");
+            c1.setAttribute("class","col-4");
+            c2.setAttribute("class","col-8");
+            var smallImg=document.createElement("img");
+            smallImg.setAttribute("src",data["lthumbnail_image"]);
+            smallImg.setAttribute("id","smallImg");
+            totalPrice=totalPrice+data["price_value_prices"];
+            ne=totalPrice.toFixed(2);
+            console.log(totalPrice,ne);
+            var price=document.createElement("div");
+            var itemName= document.createElement("div");
+            var costPrice =document.createElement("div");
+            price.innerHTML=data["price_value_prices/_source"]+data["piece_label"];
+            itemName.innerHTML=data["subjectprod_link/_text"];
+            costPrice.innerHTML=data["costprice_value_prices/_source"];
+            itemName.setAttribute("class","itemName");
+            price.setAttribute("class","price");
+            costPrice.setAttribute("class","costPrice");
+
+            c1.appendChild(smallImg);
+            c2.appendChild(itemName);
+            c2.appendChild(price);
+            c2.appendChild(costPrice);
+            prod.appendChild(c1);
+            prod.appendChild(c2);
+            document.getElementById("container").appendChild(prod);
+            }
+            )
+            document.getElementById("total").innerHTML+=ne;
+        }
+        
+        function clearCart(){
+            localStorage["cart"]=null;
+            location.reload();
+        }
+    </script>
+    <div id="header"><h1><span id="hHeader" onclick="window.location.href='index.html'">Shopping Website</span><span id="hCart" onclick="window.location.href='cart.html'">Cart</span></h1></div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="container" id="container">
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col"><button class="btn btn-danger btn-lg" onclick="clearCart()">Clear</button></div>
+        <div class="col total" id="total">Total: $ </div>
+
+    </div>
+</body>
+</html>

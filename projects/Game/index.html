@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock paper and scissors</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script src="script.js" type="text/javascript"></script>
+      
+<style>
+body {
+  background-color:#20B2AA;
+}
+</style>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col text-center">
+			<h1>GAME</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<h4>Player 1</h4>
+		    <select class="custom-select player1" id="inlineFormCustomSelect">
+		    	<option selected>Select Mode</option>
+		        <option value="1">Human</option>
+		        <option value="2">Computer</option>
+		    </select>
+		    <div class="row pt-2 d-none" id="player1HumanOptions">
+		    	<div class="col-3">
+		    		<a value="rock" player="1" href="#"><img src="img/rock.png" width="60px"></a>
+		    	</div>
+		    	<div class="col-3">
+		    		<a value="paper" player="1" href="#"><img src="img/paper.png" width="60px"></a>
+		    	</div>
+		    	<div class="col-3">
+		    		<a value="scissor" player="1" href="#"><img src="img/scissor.png" width="60px"></a>
+		    	</div>
+		    </div>
+		</div>
+		<div class="col text-center">
+			<div class="row">
+				<div class="col">
+					<button type="button" class="btn btn-primary" id="start">Start</button>
+					<button type="button" class="btn btn-primary d-none" id="restartButton">Restart</button>
+				</div>
+			</div>
+			<div class="row mx-5 my-2">
+				<div class="col" attacker="" id="1"></div>
+				<div class="col" id="restart">V/S</div>
+				<div class="col" attacker="" id="2"></div>
+			</div>
+			<div class="row mx-5 my-2">
+				<div class="col">
+					<table class="table table-sm" id="roundResults">
+						<tr class="table-active">
+							<th>Rounds</th>
+							<th>Winner</th>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="row mx-5 my-2">
+				<div class="col d-none" id="finalResult">
+					<table class="table">
+						<tr>
+							<th>Player 1</th>
+							<th>Player 2</th>
+						</tr>
+						<tr>
+							<td class="display-4 font-weight-bold" id="player1Result"></td>
+							<td class="display-4 font-weight-bold" id="player2Result"></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<h4>Player 2</h4>
+		     <select class="custom-select player2" id="inlineFormCustomSelect">
+		    	<option selected>Select Mode</option>
+		        <option value="1">Human</option>
+		        <option value="2">Computer</option>
+		    </select>
+		    <div class="row pt-2 d-none" id="player2HumanOptions">
+		    	<div class="col-3">
+		    		<a value="rock" player="2" href="#"><img src="img/rock.png" width="60px"></a>
+		    	</div>
+		    	<div class="col-3">
+		    		<a value="paper" player="2" href="#"><img src="img/paper.png" width="60px"></a>
+		    	</div>
+		    	<div class="col-3">
+		    		<a value="scissor" player="2" href="#"><img src="img/scissor.png" width="60px"></a>
+		    	</div>
+		    </div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

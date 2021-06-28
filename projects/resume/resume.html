@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Resume</title>
+ <link type="text/css" rel="stylesheet" href="css/style.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+<!-- Begin Wrapper -->
+<div>
+  <div class="wrapper-top"></div>
+  <div class="wrapper-mid">
+    <!-- Begin Paper -->
+    <div id="paper">
+      <div class="wrapper-top"></div>
+      <div class="paper-top">
+        <h1 id="fullname"></h1>
+      </div>
+      <div id="paper-mid">
+        <div class="entry">
+          <!-- Begin Image -->
+          <div id="image">
+            <img id="previewImg" class="portrait" src=""/>
+            </div>
+          <!-- End Image -->
+          <!-- Begin Personal Information -->
+          <div class="self">
+            
+              <h1><span id="jobTitle"></span></h1>
+            <ul>
+              <li id="email" class="mail"></li>
+              <li id="contactNumber" class="tel"></li>
+            </ul>
+          </div>
+          <!-- End Personal Information -->
+        </div>
+        <!-- Begin 1st Row -->
+        <div class="entry">
+          <h2>PROFILE</h2>
+          <p id="aboutMyself">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dignissim viverra nibh sed varius. Proin bibendum nunc in sem ultrices posuere. Aliquam ut aliquam lacus.</p>
+        </div>
+        <!-- End 1st Row -->
+        <!-- Begin 2nd Row -->
+        <div class="entry">
+          <h2>EDUCATION</h2>
+          <div id="education">
+            <div class="content">
+              <h3>Sep 2005 - Feb 2007</h3>
+              <p>Academy of Art University, London <br />
+                <em>Master in Communication Design</em></p>
+            </div>
+            <div class="content">
+              <h3>Sep 2001 - Jun 2005</h3>
+              <p>University of Art &amp; Design, New York <br />
+                <em>Bachelor of Science in Graphic Design</em></p>
+            </div>
+          </div>
+        </div>
+        <!-- End 2nd Row -->
+        <!-- Begin 3rd Row -->
+        <div class="entry">
+          <h2>EXPERIENCE</h2>
+          <div id="experience">
+            <!-- <div class="content">
+              <h3>May 2009 - Feb 2010</h3>
+              <p>Agency Creative, London <br />
+                <em>Senior Web Designer</em></p>
+              <ul class="info">
+                <li>Vestibulum eu ante massa, sed rhoncus velit.</li>
+                <li>Pellentesque at lectus in <a href="#">libero dapibus</a> cursus. Sed arcu ipsum, varius at ultricies acuro, tincidunt iaculis diam.</li>
+              </ul>
+            </div>
+            <div class="content">
+              <h3>Jun 2007 - May 2009</h3>
+              <p>Junior Web Designer <br />
+                <em>Bachelor of Science in Graphic Design</em></p>
+              <ul class="info">
+                <li>Sed fermentum sollicitudin interdum. Etiam imperdiet sapien in dolor rhoncus a semper tortor posuere. </li>
+                <li>Pellentesque at lectus in libero dapibus cursus. Sed arcu ipsum, varius at ultricies acuro, tincidunt iaculis diam.</li>
+              </ul>
+            </div> -->
+          </div>
+        </div>
+        <!-- End 3rd Row -->
+        <!-- Begin 4th Row -->
+        <div class="entry">
+          <h2>SKILLS</h2>
+          <div id="skillSet">
+          </div>
+        </div>
+        <!-- End 4th Row -->
+      </div>
+      <div class="clear"></div>
+      <div class="paper-bottom"></div>
+    </div>
+    <!-- End Paper -->
+  </div>
+  <div class="wrapper-bottom"></div>
+</div>
+<!-- End Wrapper -->
+</body>
+</html>
+<script type="text/javascript">
+  $("#fullname").html(sessionStorage.getItem("name"));
+  $("#jobTitle").html(sessionStorage.getItem("jobTitle"));
+  $("#email").html(sessionStorage.getItem("email"));
+  $("#contactNumber").html(sessionStorage.getItem("contactNumber"));
+  $("#experience").html(sessionStorage.getItem("experience"));
+  $("#education").html(sessionStorage.getItem("education"));
+  $("#skillSet").html(sessionStorage.getItem("skillSet"));
+  $("#hobbies").html(sessionStorage.getItem("hobbies"));
+  $("#aboutMyself").html(sessionStorage.getItem("aboutMyself"));
+  $("#uploadImage").html(sessionStorage.getItem("uploadImage"));
+
+  
+</script>

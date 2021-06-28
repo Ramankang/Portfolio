@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        
+        <title>javascript: calculate two numbers</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script>
+            
+            function addNewRow()
+            {
+                var n1 = parseFloat(document.getElementById('n1').value);
+                var n2 = parseFloat(document.getElementById('n2').value);
+                
+                var oper = document.getElementById('operators').value;
+                
+                if(oper === '+')
+                {
+                    document.getElementById('result').value = n1+n2;
+                }
+                
+                if(oper === '-')
+                {
+                    document.getElementById('result').value = n1-n2;
+                }
+                
+                if(oper === '/')
+                {
+                    document.getElementById('result').value = n1/n2;
+                }
+                
+                if(oper === '*')
+                {
+                    document.getElementById('result').value = n1*n2;
+                }
+
+
+var name = document.getElementById("name").value;
+        var n1 = document.getElementById("n1").value;
+var n2 = document.getElementById("n2").value;
+// code block for dropdown
+var select = document.getElementById("operators");
+var result1 = select.options[select.selectedIndex].text;
+document.getElementById.innerHTML= result1;
+
+  
+
+        var tbody = document.getElementById('studentRows');
+
+        var rowLength = tbody.rows.length;
+
+        // insertRow : create new row
+        // insertCell : create new column
+
+        var newRow = tbody.insertRow(rowLength);
+        var col1 = newRow.insertCell(0);
+        var col2 = newRow.insertCell(1);
+        var col3 = newRow.insertCell(2);
+        var col4 = newRow.insertCell(3);
+                var col5 = newRow.insertCell(4);
+                var col6 = newRow.insertCell(5);
+
+        
+        col1.innerHTML = name;
+        col2.innerHTML = n1;
+        col3.innerHTML = n2;
+                col4.innerHTML = result1;
+        col5.innerHTML = result;
+    
+            }
+
+            
+        </script>
+        
+    </head>
+<style>
+table {
+  counter-reset: rowNumber;
+}
+tbody tr:last-child{
+    color: red;
+}
+table tr::before {
+  display: table-cell;
+  counter-increment: rowNumber;
+  content: counter(rowNumber) ".";
+  padding-right: 0.3em;
+  text-align: right;
+
+}
+</style>
+    <body>
+
+<h2 style="text-align: center; color: grey;"><u>STUDENT CALCULATOR</u></h2>
+
+<div class="container">
+        <input type="text" id="name" placeholder="Name"><br><br>
+        <input type="text" id="n1" placeholder="Number1"/><br/><br/>
+        <input type="text" id="n2" placeholder="Number2"/><br/><br/>
+        
+        <select id="operators">
+            <option value="+">Add</option>
+            <option value="-">Sub</option>
+            <option value="/">div</option>
+            <option value="*">mul</option>
+        </select>
+        
+        <button class="btn btn-primary float-right m-3" onclick="addNewRow()">submit</button>
+        <input type="text" id="result"/>
+
+
+<table class="table">
+        <thead>
+            <tr style="color: white; background-color: grey;">
+                
+                <th>Name</th>
+                <th>Num #1</th>
+                <th>Num #2</th>
+                <th>Operation</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody id="studentRows">
+            
+
+            
+            
+        </tbody>
+    </table>
+</div>
+        
+    </body>
+</html>
